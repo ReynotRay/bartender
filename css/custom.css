@@ -2,10 +2,11 @@
 @import url(https://fonts.googleapis.com/css?family=Pirata+One);
 
 body {
-  background-color: #656D37;
+  background: url('assets/KRWvyW5.jpg')center center/cover no-repeat fixed;
   font-family:'Pirata One';
   color:white;
 }
+
 .container {
 	text-align: center;
 }
