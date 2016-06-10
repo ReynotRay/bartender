@@ -14,18 +14,18 @@ function BartenderApp() {
             //     sweet: ['Sugar cube', 'spoonful of honey', 'splash of cola'],
             //     fruity: ['Slice of orange', 'dash of cassis', 'cherry on top']
             // }
-    }
-    //create a loop that will append questions.
-BartenderApp.prototype.generateDrinks = function() {
+        }
+//create a loop that will append questions.
+    BartenderApp.prototype.generateDrinks = function() {
         for (var i = 0; i < this.questions.length; i++) {
             $('#generateQuestions').append('<li id="questions">' + this.questions[
                 i] + '<br>' + '</li>');
         }
     }
-    //create new objects of the same type
-var app = new BartenderApp();
+//create new objects of the same type
+    var app = new BartenderApp();
 //click function will run code accordingly 
-$('#submitButton').click(function(event) {
+    $('#submitButton').click(function(event) {
     event.preventDefault();
     console.log('click working');
     //getValue function will retrieve value from id inpur
@@ -36,9 +36,8 @@ $('#submitButton').click(function(event) {
     verifyData();
 });
 //verifyData function will confirm if string is Yes then 
-function verifyData() {
+    function verifyData() {
     if ($('#input').val() == 'yes') {
-        BartenderApp();
         displayIngredients();
         $('#submitButton').hide();
         $('.maybe').hide();
@@ -51,9 +50,9 @@ function verifyData() {
     }
 }
 
-function displayIngredients() {
+    function displayIngredients() {
         $('.ingredients').show();
         $('.ingredients').append(this.ingredients);
     }
-    //run the function generate drinks
-app.generateDrinks();
+//run the function generate drinks
+    app.generateDrinks();
