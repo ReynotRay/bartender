@@ -1,36 +1,72 @@
-
-@import url(https://fonts.googleapis.com/css?family=Pirata+One);
+@import  "https://fonts.googleapis.com/css?family=Pirata+One";
 
 body {
-  background: url('assets/KRWvyW5.jpg')center center/cover no-repeat fixed;
-  font-family:'Pirata One';
-  color:white;
+    background: url(assets/KRWvyW5.jpg)center center/cover no-repeat fixed;
+    font-family: 'Pirata One';
+    color: #fff;
+}
+
+#next {
+    float: center;
+    display: none;
+}
+
+.ingredients {
+    display: none;
+    font-size: 43px;
+    color: #bd0a39;
+    background-color: #ffd700;
 }
 
 .container {
-	text-align: center;
+    text-align: center;
 }
 
 .title {
-	font-size: 3em;
+    font-size: 84px;
+    margin: auto;
+}
+
+#input {
+    font-size: 25px;
 }
 
 #generateQuestions {
-	font-size: 29px;
-	list-style-type: none;
+    font-size: 35px;
+    list-style-type: none;
 }
-ul{
-	text-decoration: none;
- }
- #submitButton {
- 	text-align: center;
- 	background-color:white;
- 	border-radius: 3px;
- 	font-size: 20px;
- 	margin-left: 32px;
- }
 
-#submitButton:hover{
-	background-color: black;
-	color: white;
+ul {
+    text-decoration: none;
+}
+
+#submitButton {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 32px;
+}
+
+.maybe {
+    display: none;
+}
+
+#submitButton:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+#pirate {
+    width: 480px;
+    margin: auto;
+    display: block;
+}
+
+p {
+    font-size: 45px;
+}
+
+#pirate,p {
+    display: none;
 }
