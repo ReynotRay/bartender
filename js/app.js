@@ -6,14 +6,14 @@ function BartenderApp() {
             // '4. Would ye like a bit of sweetness with yer poison?',
             // '5. Are ye one for a fruity finish?',
         ];
-        this.ingredients = [' glum of rum', ' slug of whisky', ' splash of gin']
-            // {
-            //     strong: ['Glug of rum', 'slug of whisky', 'splash of gin'],
-            //     salty: ['Olive on a stick', 'salt-dusted rim','rasher of bacon'],
-            //     bitter: ['Shake of bitters', 'splash of tonic','twist of lemon peel'],
-            //     sweet: ['Sugar cube', 'spoonful of honey', 'splash of cola'],
-            //     fruity: ['Slice of orange', 'dash of cassis', 'cherry on top']
-            // }
+        this.ingredients = 
+            {
+                strong: ['Glug of rum', 'slug of whisky', 'splash of gin'],
+                salty: ['Olive on a stick', 'salt-dusted rim','rasher of bacon'],
+                bitter: ['Shake of bitters', 'splash of tonic','twist of lemon peel'],
+                sweet: ['Sugar cube', 'spoonful of honey', 'splash of cola'],
+                fruity: ['Slice of orange', 'dash of cassis', 'cherry on top']
+            };
         }
 //create a loop that will append questions.
     BartenderApp.prototype.generateDrinks = function() {
@@ -22,23 +22,12 @@ function BartenderApp() {
                 i] + '<br>' + '</li>');
         }
     }
-//create new objects of the same type
-    var app = new BartenderApp();
-//click function will run code accordingly 
-    $('#submitButton').click(function(event) {
-    event.preventDefault();
-    console.log('click working');
-    //getValue function will retrieve value from id inpur
-    function getValue() {
-        $('#input').val();
-    }
-    console.log($('#input').val());
-    verifyData();
-});
-//verifyData function will confirm if string is Yes then 
-    function verifyData() {
+
+
+
+BartenderApp.prototype.verifyData = function () {
     if ($('#input').val() == 'yes') {
-        displayIngredients();
+        app.displayIngredients();
         $('#submitButton').hide();
         $('.maybe').hide();
         $('#next').show();
@@ -50,9 +39,30 @@ function BartenderApp() {
     }
 }
 
-    function displayIngredients() {
+BartenderApp.prototype.displayIngredients = function() {
+        console.log(this.ingredients);
         $('.ingredients').show();
-        $('.ingredients').append(this.ingredients);
-    }
+        
+$.each(this.ingredients, function (key,value){
+    $('.ingredients').append('<p>' + key + ':' + value +'</li>');
+
+});
+
+}
 //run the function generate drinks
-    app.generateDrinks();
+
+
+
+var app = new BartenderApp();
+    
+
+    $('#submitButton').click(function(event) {
+    event.preventDefault();
+    console.log('click working');
+
+    console.log($('#input').val());
+    app.verifyData();
+
+});
+
+app.generateDrinks();
