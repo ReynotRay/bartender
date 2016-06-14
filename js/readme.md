@@ -1,12 +1,39 @@
-create drink method
-construct a new drink object-fetching radomly chosen ingredients form the pantry which match users preference.
-cretae a bartendar obect and add logic so that when the user submits their preferences the drink is created and display in your ui
+function generateQuestion(question_number) {
+    $('#question_title').text(questions[currentQuestion].question);
+    $('#header-image img').attr("src", questions[currentQuestion].photo);
+    for (var i = 0; i < questions[question_number].answers.length; i++) {
+        $('.answers').append('<li class="answer">' + questions[question_number].answers[i] + '</li>');
+    }
 
-give cocktails a name
-create a burger chef, inhertitance all similar behavior
+    if (currentQuestion === 0) {
+        for (var i = 0; i < questions.length; i++) {
+            $('.progress ul').
+            append("<li>" + (i + 1) + "</li>");
+
+        }
+    }
+}
 
 
-extension exercises 
-multiple customers
 
-stock control. add a stock count for each ingredient
+
+
+old Js
+
+
+
+
+BartenderApp.prototype.generateDrinks = function() {
+    //     for (var i = 0; i < this.questions.length;i++) {
+    //     }
+    //     $('#generateQuestions').append('<li id="questions">' + this.questions[0] + '<br>' + '</li>');
+    //     console.log(this.questions[0]);
+    //     console.log(this.questions);
+
+    // };
+    if (currentQuestion === 0) {
+        for (var i = 0; i < this.questions.length; i++) {
+            append("<li>" + (i + 1) + "</li>");
+        }
+    }
+};
