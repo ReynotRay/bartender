@@ -20,49 +20,42 @@ BartenderApp.prototype.displayFirstQuestion = function() {
 };
 
 
-BartenderApp.prototype.nextQuestion = function(){
 $("#next").click(function() {
     console.log('click');
- console.log(this.questions);
-    $('.ingredients').remove();
     app.displaySecondQuestion();
+    this.questions[i]+1;
     }); 
-//}
+
 BartenderApp.prototype.displaySecondQuestion = function (){
-     // console.log("before");
-    
     $('#generateQuestions').append('done');
-    //console.log("after");
     $('#generateQuestions').append('<li>'+this.questions[1]+'</li>');
-    $('#generateQuestions:first-of-type').remove();
    
 };
-
 
 BartenderApp.prototype.verifyData = function() {
     if ($('#input').val() == 'yes' && this.questions[0]) {
         console.log('first question correct');
-        app.displayIngredients();
-        // $('#submitButton').hide();
-        $('.maybe').hide();
-        $('#next').show();
+         $('.ingredients').show();
+         $('.ingredients').append(this.ingredients["strong"]);
+         console.log('after');
          } 
     else if ($('#input').val() == 'yes' && this.questions[1]) {
         console.log('second final question');
-        // app.displayIngredients();
+         $('.ingredients').show();
+       $('.ingredients').append(this.ingredients["salty"]);
         // $('#submitButton').hide();
         // $('.maybe').hide();
         // $('#next').show();
-    } else if ($('#input').val() == 'yes' && this.questions[2]) {
-        console.log('3 final question');
+    // } else if ($('#input').val() == 'yes' && this.questions[2]) {
+    //     console.log('3 final question');
 
-    }
-    else if ($('#input').val() == 'yes'|| this.questions[3]) {
-        console.log('4 final question');
+    // }
+    // else if ($('#input').val() == 'yes'|| this.questions[3]) {
+    //     console.log('4 final question');
 
-    }
-    else if ($('#input').val() == 'yes'|| this.questions[4]) {
-        console.log('5 final question');
+    // }
+    // else if ($('#input').val() == 'yes'|| this.questions[4]) {
+    //     console.log('5 final question');
     }
     else{   
         console.log('finised');
@@ -76,11 +69,6 @@ BartenderApp.prototype.displayIngredients = function() {
     //});
 
 };
-//run the function generate drinks
-
-
-
-
 var app = new BartenderApp();
 
 
