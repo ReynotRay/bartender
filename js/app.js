@@ -23,13 +23,15 @@ BartenderApp.prototype.displayFirstQuestion = function() {
 $("#next").click(function() {
     console.log('click');
     app.displaySecondQuestion();
-    this.questions[i]+1;
+    //this.questions[i]+1;
     }); 
 
 BartenderApp.prototype.displaySecondQuestion = function (){
+    $('#generateQuestions').hide('<li>'+this.questions[0]+'</li>');
+    $('#generateQuestions').append();
     $('#generateQuestions').append('done');
-    $('#generateQuestions').append('<li>'+this.questions[1]+'</li>');
-   
+    $('#generateQuestions1').append('<li>'+this.questions[1]+'</li>');
+   console.log('fucks');
 };
 
 BartenderApp.prototype.verifyData = function() {

@@ -31,7 +31,7 @@ body {
     font-size: 25px;
 }
 
-#generateQuestions {
+.generateQuestions {
     font-size: 35px;
     list-style-type: none;
 }
