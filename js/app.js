@@ -19,7 +19,6 @@ BartenderApp.prototype.displayFirstQuestion = function() {
     $('#generateQuestions').append('<li>'+this.questions[0]+'</li>');
 };
 
-
 $("#next").click(function() {
     console.log('click');
     app.displaySecondQuestion();
@@ -29,7 +28,11 @@ $("#next").click(function() {
 BartenderApp.prototype.displaySecondQuestion = function (){
     $('#generateQuestions').append('done');
     $('#generateQuestions').append('<li>'+this.questions[1]+'</li>');
-   
+    app.displayThirdQuestion();
+};
+
+BartenderApp.prototype.displaySecondQuestion = function (){
+    $('#generateQuestions').append('<li>'+this.questions[1]+'</li>');
 };
 
 BartenderApp.prototype.verifyData = function() {
@@ -43,19 +46,19 @@ BartenderApp.prototype.verifyData = function() {
         console.log('second final question');
          $('.ingredients').show();
        $('.ingredients').append(this.ingredients["salty"]);
-        // $('#submitButton').hide();
-        // $('.maybe').hide();
-        // $('#next').show();
-    // } else if ($('#input').val() == 'yes' && this.questions[2]) {
-    //     console.log('3 final question');
+        $('#submitButton').hide();
+        $('.maybe').hide();
+        $('#next').show();
+    } else if ($('#input').val() == 'yes' && this.questions[2]) {
+        console.log('3 final question');
 
-    // }
-    // else if ($('#input').val() == 'yes'|| this.questions[3]) {
-    //     console.log('4 final question');
+    }
+    else if ($('#input').val() == 'yes'|| this.questions[3]) {
+        console.log('4 final question');
 
-    // }
-    // else if ($('#input').val() == 'yes'|| this.questions[4]) {
-    //     console.log('5 final question');
+    }
+    else if ($('#input').val() == 'yes'|| this.questions[4]) {
+        console.log('5 final question');
     }
     else{   
         console.log('finised');
