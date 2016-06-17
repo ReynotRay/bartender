@@ -11,7 +11,15 @@ body {
     
 }
 
-.ingredients {
+.ingredients
+{
+    font-size: 43px;
+    color: #bd0a39;
+    background-color: #ffd700;
+}
+
+
+#consist {
     display: none;
     font-size: 43px;
     color: #bd0a39;
@@ -66,7 +74,16 @@ ul {
 p {
     font-size: 45px;
 }
+#noalcohol{
+    display: none;
+}
 
 #pirate {
     display: none;
+}
+
+#reset {
+    display: none;
+    font-size: 24px;
+}
 }
