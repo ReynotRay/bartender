@@ -1,4 +1,4 @@
-@import  https://fonts.googleapis.com/css?family=Pirata+One;
+@import  "https://fonts.googleapis.com/css?family=Pirata+One";
 
 body {
     background: url(assets/KRWvyW5.jpg)center center/cover no-repeat fixed;
@@ -8,13 +8,16 @@ body {
 
 #next {
     float: center;
+    
 }
 
-.ingredients {
+.ingredients
+{
     font-size: 43px;
     color: #bd0a39;
     background-color: #ffd700;
 }
+
 
 #consist {
     display: none;
@@ -71,8 +74,7 @@ ul {
 p {
     font-size: 45px;
 }
-
-#noalcohol {
+#noalcohol{
     display: none;
 }
 
@@ -83,5 +85,4 @@ p {
 #reset {
     display: none;
     font-size: 24px;
-}    
 }
