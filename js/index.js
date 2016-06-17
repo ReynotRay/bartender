@@ -30,6 +30,7 @@
         // when it reaches the length of the array
         $(".generateQuestions").text(questions[currentQuestion]); // the new incremented value
        //app reset will .show() correct buttons before display quesitons
+       $('#noalcohol').hide();
        app.reset();
         });
     };}
@@ -61,6 +62,7 @@
         var hideSubmitButton;
         var showDrinkConsist;
         $('.ingredients').show(this.ingredients["fruity"]);
+        //location.reload();
     } else {
         $('#pirate').show();
         $('#noalcohol').show();
@@ -88,5 +90,5 @@
     };
 
     var app = new BartenderApp();
-//start app with displayQuetsions
+    //start app with displayQuetsions
     app.displayQuestions();
