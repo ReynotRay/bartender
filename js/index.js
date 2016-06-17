@@ -1,13 +1,15 @@
 //establish bartender fucntion for questions and ingredients
-function BartenderApp(questions,ingredients) {
+    function BartenderApp(questions,ingredients) {
     //establish current question 0
     currentQuestion = 0;
+    //questions
     questions = ['Do ye like yer drinks strong?',
         'Do ye like it with a salty tang?',
         'Are ye a lubber who likes it bitter?',
         'Would ye like a bit of sweetness with yer poison?',
         'Are ye one for a fruity finish?',
     ];
+    //ingredients that will show
     this.ingredients = {
         strong: ['Glug of rum', ' slug of whisky', ' & splash of gin.'],
         salty: ['Olive on a stick', 'salt-dusted rim',' & rasher of bacon.'],
@@ -16,26 +18,29 @@ function BartenderApp(questions,ingredients) {
         fruity: ['Slice of orange', 'dash of cassis',' & cherry on top.'
         ]
     };
-   
-BartenderApp.prototype.loopQuestions = function() {
+    //function that will display questions
+    BartenderApp.prototype.displayQuestions = function() {
      //display initial questions
     $(".generateQuestions").text(questions[currentQuestion]);
-    // the next line, of course, assumes you have an element with id="next"
+    // you will be click a div with id next
     $('#next').click(function() {
-        currentQuestion = (currentQuestion + 1) % questions.length; // increment your counter
+        //you will increment on click by 1
+        currentQuestion = (currentQuestion + 1) % questions.length; 
         // the modulus (%) operator resets the counter to 0
         // when it reaches the length of the array
         $(".generateQuestions").text(questions[currentQuestion]); // the new incremented value
-        app.reset();
-    });
-};}
-BartenderApp.prototype.displayIngredients = function() {
-
+       //app reset will .show() correct buttons before display quesitons
+       app.reset();
+        });
+    };}
+    //function that will display ingredients when called
+    BartenderApp.prototype.displayIngredients = function() {
+    //establish local variables
     var inputValue = $('#input').val();
     var textValue = $(".generateQuestions").text();
     var hideSubmitButton = $('#submitButton').hide();
     var showDrinkConsist = $('#consist').show();
-
+    //if input value equals yes and text value equals quetsion than do this
     if (inputValue == 'yes' && textValue == 'Do ye like yer drinks strong?') {
     var hideSubmitButton;
     var showDrinkConsist;
@@ -65,24 +70,23 @@ BartenderApp.prototype.displayIngredients = function() {
         $('#input').hide();
          $('#reset').show();
         $('#reset').click(function() {
-    location.reload();
-});
-
-    }
-};
-
-$('#submitButton').click(function(event) {
+        location.reload();
+        });
+        }
+    };
+    //when you click submit button display ingredients 
+    $('#submitButton').click(function(event) {
     event.preventDefault();
     app.displayIngredients();
-});
-
-BartenderApp.prototype.reset = function() {
+    });
+    //function reset will show or hide buttons.
+    BartenderApp.prototype.reset = function() {
     $('#submitButton').show();
     $('#consist').hide();
     $('.ingredients').hide();
     $('#pirate').hide();
-};
+    };
 
-var app = new BartenderApp();
-
-app.loopQuestions();
+    var app = new BartenderApp();
+//start app with displayQuetsions
+    app.displayQuestions();
