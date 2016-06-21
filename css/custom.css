@@ -20,7 +20,7 @@ body {
 
 
 #consist {
-    //display: none;
+    display: none;
     font-size: 43px;
     color: #bd0a39;
     background-color: #ffd700;
@@ -56,10 +56,6 @@ ul {
     margin-left: 32px;
 }
 
-// .maybe {
-//     display: none;
-// }
-
 #submitButton:hover {
     background-color: #000;
     color: #fff;
@@ -74,15 +70,8 @@ ul {
 p {
     font-size: 45px;
 }
-// #noalcohol{
-//     display: none;
-// }
-
-// #pirate {
-//     display: none;
-// }
 
 #reset {
-    // display: none;
+    display: none;
     font-size: 24px;
 }

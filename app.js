@@ -1,87 +1,73 @@
-   // function BartenderApp(questions,ingredients) {
-    //establish current question 0
-    currentQuestion = 0;
-    //questions
+function BartenderApp(){ 
+
      var questions = ['Do ye like yer drinks strong?',
         'Do ye like it with a salty tang?',
         'Are ye a lubber who likes it bitter?',
         'Would ye like a bit of sweetness with yer poison?',
         'Are ye one for a fruity finish?',];
  
-
-    var ingredients = {
-        strong: ['Glug of rum', ' slug of whisky', ' & splash of gin.'],
-        salty: ['Olive on a stick', 'salt-dusted rim',' & rasher of bacon.'],
-        bitter: ['Shake of bitters', 'splash of tonic',' & twist of lemon peel.'],
-        sweet: ['Sugar cube', 'spoonful of honey', ' & splash of cola.'],
-        fruity: ['Slice of orange', 'dash of cassis',' & cherry on top.'
-        ]
+     var ingredients = {
+        strong: ['glug of rum', ' slug of whisky', ' splash of gin'],
+        salty: [' olive on a stick', ' salt-dusted rim',' rasher of bacon'],
+        bitter: [' shake of bitters', ' splash of tonic',' twist of lemon peel'],
+        sweet: [' sugar cube', ' spoonful of honey', ' splash of cola'],
+        fruity: [' slice of orange', ' dash of cassis',' cherry on top']
 };
 
-// var drink = function(ingredients) {
-//     console.log(ingredients);
-//     this.strong = ingredients.strong;
-//     this.salty = ingredients.salty;
-//     this.bitter = ingredients.bitter;
-// };
 
-//working random number
-//     var ingredients = 
-//       ['Glug of rum','slug of whisky', 'splash of gin']
- 
-//     ;
+var randomElement = function() {
+   var newNumber = Math.floor((Math.random() * 3) + 0);
+   return newNumber;
+};
 
-// var randomElementFromArray = Math.floor(Math.random() * ingredients.length);
-
-// console.log(ingredients[randomElementFromArray]);
-
-
-// var randomElementFromArray = function(){
-//     var newNumber = Math.floor(Math.random() + ingredients.length);
-//     console.log(ingredients[randomElementFromArray]);
-// };
-
-
-function generateQuestions(){
+BartenderApp.prototype.displayQuestions = function() {
     
  for (var i = 0; i < questions.length; i++) { 
-     $('.generateQuestionsList').append('<div>'+'<p>' + questions[i] +'<br> yes <input name=check' + i +
+     $('.generateQuestionsList').append('<div>'+'<p>' + questions[i] +'<br> Yes! <input name=check' + i +
     ' value="true" type=radio <br> No! <input name=check' + i + ' type=radio value="false"></p>'+'</div>');
     }
-    
-//function submit(){
+
     $('#submitAnswers').click(function(event){
     event.preventDefault();
+    $('.generateQuestionsList').hide();
+    $('#submitAnswers').hide();
+    $('#reset').show();
+    $('#consist').show();
+    $('#reset').click(function() {
+        location.reload();
+        });
     //retrieve the selection
     var userChoice = $('form').serializeArray();
-       if (userChoice[0].value === "true") {
+        if (userChoice[0].value === "true" ) {
     console.log("inside0");
+    $('.ingredients').append(ingredients.strong[randomElement()]);
         }
-    //     else if (userChoice[1].value === "true") {
-    // console.log("inside1");
-    //     }
-    //     else if (userChoice[2].value === "true") {
-    // console.log("inside2");
-    //     }
-    //     else if (userChoice[3].value === "true") {
-    // console.log("inside3");
-    //     }
-    //     else if (userChoice[4].value === "true") {
-    // console.log("inside4");
-    //     }
-    //     else{
-    //         console.log('nothing');
-    //     }
-        
+        if (userChoice[1].value === "true") {
+    console.log("inside1");
+    $('.ingredients').append(ingredients.salty[randomElement()]);
+        }
+        if (userChoice[2].value === "true") {
+    console.log("inside2");
+    $('.ingredients').append(ingredients.bitter[randomElement()]);
+        }
+        if (userChoice[3].value === "true") {
+    console.log("inside3");
+    $('.ingredients').append(ingredients.sweet[randomElement()]);    
+        }
+        if (userChoice[4].value === "true") {
+    console.log("inside4");
+    $('.ingredients').append( ingredients.fruity[randomElement()]);
+        }
+        else{
+            console.log('nothing');
+        }
     console.log(userChoice);
-    //checkTrue();
     
     });
 
-
+};
 }
-
-    // var app = new BartenderApp();
+    var app = new BartenderApp();
     //start app with displayQuetsions
-    generateQuestions();
+    app.displayQuestions();
    //random element from array randomElementFromArray();
