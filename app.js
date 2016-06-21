@@ -1,3 +1,4 @@
+//establish function for bartender
 function BartenderApp(){ 
 
      var questions = ['Do ye like yer drinks strong?',
@@ -14,19 +15,19 @@ function BartenderApp(){
         fruity: [' slice of orange', ' dash of cassis',' cherry on top']
 };
 
-
+//create a random function that will pick through ingredients
 var randomElement = function() {
    var newNumber = Math.floor((Math.random() * 3) + 0);
    return newNumber;
 };
-
+//display questions
 BartenderApp.prototype.displayQuestions = function() {
-    
  for (var i = 0; i < questions.length; i++) { 
      $('.generateQuestionsList').append('<div>'+'<p>' + questions[i] +'<br> Yes! <input name=check' + i +
     ' value="true" type=radio <br> No! <input name=check' + i + ' type=radio value="false"></p>'+'</div>');
     }
 
+//click function 
     $('#submitAnswers').click(function(event){
     event.preventDefault();
     $('.generateQuestionsList').hide();
@@ -59,7 +60,7 @@ BartenderApp.prototype.displayQuestions = function() {
     $('.ingredients').append( ingredients.fruity[randomElement()]);
         }
         else{
-            console.log('nothing');
+            console.log('error');
         }
     console.log(userChoice);
     
@@ -70,4 +71,3 @@ BartenderApp.prototype.displayQuestions = function() {
     var app = new BartenderApp();
     //start app with displayQuetsions
     app.displayQuestions();
-   //random element from array randomElementFromArray();
